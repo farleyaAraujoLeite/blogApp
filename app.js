@@ -4,7 +4,6 @@ const handlebars = require("express-handlebars");
 const bodyParser = require("body-parser");
 const app = express();
 const path = require("path");
-const mongoose = require("mongoose");
 const session = require("express-session");
 const flash = require("connect-flash");
 //importando rotas
@@ -21,7 +20,7 @@ const { default: mongoose, Promise } = require("mongoose");
   //flash
     app.use(flash());
   //middleware
-    app.use((res, res, next) => {
+    app.use((req, res, next) => {
       res.localssuccess_msg = req.flash("success_msg");
       res.locals.error_msg = req.flash("error_msg");
       next();
