@@ -8,7 +8,7 @@ const session = require("express-session");
 const flash = require("connect-flash");
 //importando rotas
 const admin = require("./routes/admin");
-const { default: mongoose, Promise } = require("mongoose");
+const { default: mongoose } = require("mongoose");
 //const mongoose = require("mongoose");
 //Configurações
   //Sessão
