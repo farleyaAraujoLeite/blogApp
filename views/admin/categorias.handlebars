@@ -15,7 +15,12 @@
       <div class="d-grid gap-2 d-md-flex justify-content-md-end">
         <a href="/admin/categorias/edit/{{_id}}"><button class="btn btn-outline-primary mt-4 ">Editar categoria</button></a>
       </div> 
+      <form action="/admin/categorias/deletar" method="POST">
+        <input type="hidden" name="id" value="{{_id}}">
+        <button type="submit" class="btn btn-danger mt-2" >Deletar categoria</button>
+      </form>
     </div>
   </div>
   {{else}}
+  <h4 class="mt-3">Nenhuma categoria registrada!</h4>
 {{/each}}
