@@ -132,7 +132,7 @@ router.post("/postagens/nova", (req, res) => {
     erros.push({text: "Categoria inválida, registre uma categoria!"})
   }
   if(erros.length > 0){
-    res.render("adminaddpostagem", {erros: erros});
+    res.render("admin/addpostagem", {erros: erros});
   } else {
     const novaPostagem = {
       titulo: req.body.titulo,
@@ -192,5 +192,15 @@ router.post("/postagem/edit", (req, res) => {
   })
 
 })
+
+router.get("/postagens/deletar/:id", (req, res) => {
+  Postagem.deleteOne({_id: req.params.id}).then(() => {
+    req.flash("success_msg", "Postagem deletada com sucesso!");
+    res.redirect("/admin/postagens");
+  }).catch((err) => {
+    req.flash("error_msg", "Houve um erro ao deletar a postagem!");
+    res.redirect("/admin/postagens");
+  });
+} )
 
 module.exports = router;
