@@ -8,14 +8,14 @@
   <div class="card mt-4">
     <div class="card-body">
       <h4>Titulo: {{titulo}}</h4>
-      <p>Descrição: {{descricao}}</p>
+      <p>Descrição: {{descricao}}</p>     
       <small>Data: {{data}}</small>
       <br>
       <small>Categoria: {{categoria.nome}}</small>
       <br>
       <a href="/admin/postagens/edit/{{_id}}"><button class="btn btn-outline-success mt-3">Editar postagem</button></a>
       <a href="/admin/postagens/deletar/{{_id}}"><button class="btn btn-outline-danger mt-3">Deletar postagem</button></a>
-    </div>
+    </div>    
   </div>
 {{else}}
   <p>Nenhuma postagem registrada!</p>
