@@ -13,7 +13,7 @@ require("./models/Categoria");
 const Categoria = mongoose.model("categorias");
 //importando rotas
 const admin = require("./routes/admin");
-const usuarios = require("./routes/usuarios")
+const usuarios = require("./routes/usuario");
 //const mongoose = require("mongoose");
 //Configurações
   //Sessão
@@ -114,7 +114,7 @@ const usuarios = require("./routes/usuarios")
     res.render("Rota de postagens");
   });
   app.use("/admin", admin);
-  app.use("/usuario", usuarios);
+  app.use("/usuarios", usuarios);
 
 
 //Outros
