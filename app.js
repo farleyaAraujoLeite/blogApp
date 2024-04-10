@@ -13,6 +13,7 @@ require("./models/Categoria");
 const Categoria = mongoose.model("categorias");
 //importando rotas
 const admin = require("./routes/admin");
+const usuarios = require("./routes/usuarios")
 //const mongoose = require("mongoose");
 //Configurações
   //Sessão
@@ -53,6 +54,7 @@ const admin = require("./routes/admin");
   //public
     app.use(express.static(path.join(__dirname, "public")));
 //Rotas
+// Rota responsável por listar todas as postagens na página home
   app.get("/", (req, res) => {
     Postagem.find().populate("categoria").sort({data: "desc"}).then((postagens) => {
       res.render("index", {postagens: postagens});
@@ -61,7 +63,7 @@ const admin = require("./routes/admin");
       res.redirect("/404");
     }) 
   });
-
+// Rota responsável por listar as postagens 
   app.get("/postagem/:slug", (req, res) => {
     Postagem.findOne({slug: req.params.slug}).then((postagem) => {
       if(postagem){
@@ -75,7 +77,7 @@ const admin = require("./routes/admin");
       res.redirect("/");
     })
   })
-
+// Rota responsável por listar as categorias
   app.get("/categorias", (req, res) => {
     Categoria.find().then((categorias) => {
       res.render("categorias/index", {categorias: categorias});
@@ -84,7 +86,7 @@ const admin = require("./routes/admin");
       res.render("/");
     })
   })
-
+// Rota responsável por listar os posts 
   app.get("/categorias/:slug", (req, res) => {
     Categoria.findOne({slug: req.params.slug}).then((categoria) => {
       if(categoria){
@@ -112,6 +114,7 @@ const admin = require("./routes/admin");
     res.render("Rota de postagens");
   });
   app.use("/admin", admin);
+  app.use("/usuario", usuarios);
 
 
 //Outros
