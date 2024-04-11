@@ -1,7 +1,12 @@
 <h4>Categorias:</h4>
+<p>Encontre artigos por categorias.</p>
 
-{{#each categorias}}
-  <a href="/categorias/{{slug}}"><h5>{{nome}}</h5></a>
-{{else}}
+<div class="card">
+  <div class="card-body">
+    {{#each categorias}}
+      <a href="/categorias/{{slug}}"><h5>{{nome}}</h5></a>
+    {{else}}
 
-{{/each}}
+    {{/each}}
+  </div>
+</div>
