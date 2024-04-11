@@ -11,6 +11,8 @@ require("./models/Postagem");
 const Postagem = mongoose.model("postagens");
 require("./models/Categoria");
 const Categoria = mongoose.model("categorias");
+const passport = require("passport");
+require("./config/auth")(passport)
 //importando rotas
 const admin = require("./routes/admin");
 const usuarios = require("./routes/usuario");
@@ -22,12 +24,16 @@ const usuarios = require("./routes/usuario");
       resave: true,
       saveUninitialized: true,
     }));
+  //passport
+    app.use(passport.initialize());
+    app.use(passport.session());
   //flash
     app.use(flash());
   //middleware
     app.use((req, res, next) => {
       res.locals.success_msg = req.flash("success_msg");
       res.locals.error_msg = req.flash("error_msg");
+      res.locals.error = req.flash("error");
       next();
     })
   //Body-parser
