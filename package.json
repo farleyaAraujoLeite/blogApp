@@ -4,7 +4,8 @@
   "description": "Esta aplicação foi desenvolvida no curso de NodeJS ministrado pelo professor Victor Lima, onde desenvolvemos uma aplicação para cadastro de postagens usando o node , express, handlebars e body-parser.",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
   },
   "author": "",
   "license": "ISC",
@@ -20,5 +21,6 @@
     "mongoose": "^8.3.1",
     "passport": "^0.7.0",
     "passport-local": "^1.0.0"
-  }
+  },
+  "devDependencies": {}
 }
