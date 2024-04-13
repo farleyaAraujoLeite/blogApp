@@ -58,8 +58,6 @@ const usuarios = require("./routes/usuario");
     }).catch((err) => {
       console.log("Erro ao se conectar" + err);
     })
-    // em breve
-  //
   //public
     app.use(express.static(path.join(__dirname, "public")));
 //Rotas

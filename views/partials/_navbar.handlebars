@@ -6,13 +6,25 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+      <!--escondendo os botoes de login caso esteja logado-->
+        {{#if user.eAdmin}}
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/admin/postagens/{{_id}}">Postagens</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/admin/categorias/{{_id}}">Categorias</a>
+        </li>        
+        {{else}}
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="/">Home</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="/categorias">Categorias</a>
         </li>
-      <!--escondendo os botoes de login caso esteja logado-->
+        {{/if}}
         {{#if user}}
         <li class="nav-item">
           <a class="nav-link" href="/usuarios/logout">Sair</a>
